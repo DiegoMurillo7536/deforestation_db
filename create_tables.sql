@@ -133,6 +133,40 @@ CREATE TABLE consumidores (
 );
 
 
+CREATE TABLE agricultores (
+    id_agricultor INT AUTO_INCREMENT PRIMARY KEY, -- ID único para cada agricultor
+    documento VARCHAR(20) NOT NULL, -- Documento de identidad del agricultor (puede ser DNI, pasaporte, etc.)
+    nombre VARCHAR(100) NOT NULL, -- Nombre completo del agricultor
+    pais VARCHAR(50) NOT NULL, -- País de origen o residencia del agricultor
+    tipo_tierra VARCHAR(50) NOT NULL, -- Tipo de tierra (arcillosa, arenosa, etc.)
+    extension_tierra DECIMAL(10, 2) NOT NULL, -- Extensión de la tierra en hectáreas (o la unidad que corresponda)
+    afectaciones TEXT NULL, -- Descripción de las afectaciones que ha sufrido la tierra (erosión, deforestación, etc.)
+    tecnicas_sostenibles BOOLEAN DEFAULT 0, -- Indica si usa técnicas sostenibles (1: sí, 0: no)
+    produccion_anual DECIMAL(15, 2) NULL, -- Producción anual en toneladas (o la unidad que corresponda)
+    tipo_cultivo VARCHAR(100) NULL, -- Tipo de cultivo que produce
+    numero_empleados INT NULL, -- Número de empleados o trabajadores
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha en que el agricultor fue registrado en el sistema
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
+
+CREATE TABLE ong_ambientalistas (
+    id_ong INT AUTO_INCREMENT PRIMARY KEY, -- ID único para cada ONG
+    nombre VARCHAR(100) NOT NULL, -- Nombre de la ONG
+    numero_registro VARCHAR(50) NULL, -- Número de registro, puede ser opcional
+    pais VARCHAR(50) NOT NULL, -- País donde opera
+    fecha_fundacion INT NOT NULL, -- Año de fundación
+    mision TEXT NOT NULL, -- Descripción de la misión de la ONG
+    tipo_actividades VARCHAR(100) NOT NULL, -- Actividades que realiza la ONG
+    areas_enfoque VARCHAR(100) NULL, -- Áreas específicas de trabajo
+    presupuesto_anual DECIMAL(15, 2) NULL, -- Presupuesto anual de la ONG
+    numero_empleados INT NULL, -- Número de empleados o voluntarios
+    problematicas TEXT NULL, -- Descripción de las problemáticas que aborda
+    proyectos_actuales TEXT NULL, -- Descripción de proyectos actuales
+    resultados_obtenidos TEXT null, -- Resultados o logros alcanzados
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha en que el agricultor fue registrado en el sistema
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 /* 
  * Relación de las tablas para poder realizar el MR 
 */
@@ -158,3 +192,9 @@ alter  table deforestacion_destruccion_habitats.consumidores add foreign key (go
 
 alter  table deforestacion_destruccion_habitats.turistas add column inmobiliario_id int;
 alter  table deforestacion_destruccion_habitats.turistas add foreign key (inmobiliario_id) references deforestacion_destruccion_habitats.desarolladores_inmobiliarios(id_inmobiliario);
+
+alter table deforestacion_destruccion_habitats.agricultores add column gobierno_id int;
+alter table deforestacion_destruccion_habitats.agricultores add foreign key (gobierno_id) references deforestacion_destruccion_habitats.gobiernos(id_gobierno);
+
+alter table deforestacion_destruccion_habitats.agricultores add column ong_id int;
+alter table deforestacion_destruccion_habitats.agricultores add foreign key (ong_id) references deforestacion_destruccion_habitats.ong_ambientalistas(id_ong);
