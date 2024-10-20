@@ -198,3 +198,6 @@ alter table deforestacion_destruccion_habitats.agricultores add foreign key (gob
 
 alter table deforestacion_destruccion_habitats.agricultores add column ong_id int;
 alter table deforestacion_destruccion_habitats.agricultores add foreign key (ong_id) references deforestacion_destruccion_habitats.ong_ambientalistas(id_ong);
+
+alter table deforestacion_destruccion_habitats.agricultores add column gobierno_id_id int;
+alter table deforestacion_destruccion_habitats.agricultores add foreign key (gobierno_id_id) references deforestacion_destruccion_habitats.gobiernos(id_gobierno);
