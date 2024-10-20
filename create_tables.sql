@@ -144,10 +144,6 @@ alter  table deforestacion_destruccion_habitats.comunidades_indigenas  add forei
 alter  table deforestacion_destruccion_habitats.desarolladores_inmobiliarios add column gobierno_id int;
 alter  table deforestacion_destruccion_habitats.desarolladores_inmobiliarios add foreign key (gobierno_id) references deforestacion_destruccion_habitats.gobiernos(id_gobierno);
 
-alter  table deforestacion_destruccion_habitats.comunidades_indigenas add column gobierno_id int;
-alter  table deforestacion_destruccion_habitats.comunidades_indigenas  add foreign key (gobierno_id) references deforestacion_destruccion_habitats.gobiernos(id_gobierno);
-
-
 alter  table deforestacion_destruccion_habitats.empresas_mineras add column gobierno_id int;
 alter  table deforestacion_destruccion_habitats.empresas_mineras add foreign key (gobierno_id) references deforestacion_destruccion_habitats.gobiernos(id_gobierno);
 
