@@ -10,6 +10,8 @@ Este repositorio contiene un ejemplo de base de datos para la deforestación y d
 - [Problema a abordar](#problema-a-abordar)
 - [Estructura de la base de datos](#estructura-de-la-base-de-datos)
 - [Herramientas y tecnologías utilizadas](#herramientas-y-tecnologías-utilizadas)
+- [Modelo relacional](#modelo-relacional)
+- [¿Cómo crear el backup?](#como-crear-el-backup)
 ## Problema a abordar
 La deforestación en áreas tropicales está siendo impulsada por la expansión agrícola y ganadera,
 así como por la explotación de recursos naturales como la madera y minerales. Corporaciones madereras y 
@@ -39,9 +41,15 @@ La base de datos está dividida en 10 tablas principales:
 - `comunidades_indigenas`: Contiene información sobre las comunidades indígenas que dependen de los hábitats naturales para su sustento y cultura.
 - `turistas`: Contiene información sobre los turistas que han utilizado los medios ambientales para reducir su impacto ambiental.
 
-## Herramientas y tecnologías utilizadas
-
-- MySQL: Es una base de datos relacional de código abierto que se utiliza para almacenar y gestionar datos estructurados.
-
 ## Modelo relacional 
 ![Logo de mi proyecto](modelo_relacional.png)
+
+## ¿Cómo crear el backup?
+Para crear el backup de tu base de datos debes realizar el siguiente comando en tu terminal. Este comando se debe realizar con MySQL.
+
+```bash
+mysqldump -u usuario -p contraseña base_de_datos > eje2.sql
+```
+
+Donde `usuario` es el nombre de usuario de tu base de datos, `contraseña` es la contraseña de tu base de datos y `base_de_datos` es el nombre de la base de datos que deseas hacer el backup.
+
