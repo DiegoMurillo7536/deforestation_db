@@ -51,5 +51,5 @@ Para crear el backup de tu base de datos debes realizar el siguiente comando en 
 mysqldump -u usuario -p contraseña base_de_datos > eje2.sql
 ```
 
-Donde `usuario` es el nombre de usuario de tu base de datos, `contraseña` es la contraseña de tu base de datos y `base_de_datos` es el nombre de la base de datos que deseas hacer el backup.
+Donde `usuario` es el nombre de usuario de tu base de datos, `contraseña` es la contraseña de tu base de datos y `base_de_datos` es el nombre de la base de datos que deseas hacer el backup. En este caso la base de datos es `deforestacion_destruccion_habitats`.
 
